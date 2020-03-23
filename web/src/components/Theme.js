@@ -40,7 +40,13 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
 
+    @media screen and (min-width: 550px) and (max-width: 1024px) {
+      display: block;
+      margin: 15px;
+    }
+
     @media screen and (max-width: 550px) {
+      display: flex;
       margin-top: 20px;
       justify-content: flex-start;
     }

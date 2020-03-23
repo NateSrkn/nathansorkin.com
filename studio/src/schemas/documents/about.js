@@ -4,7 +4,7 @@ export default {
   title: 'About',
   fields: [
     {
-      name: 'Author',
+      name: 'author',
       title: 'Author',
       type: 'string'
     },
@@ -12,12 +12,6 @@ export default {
       name: 'bio',
       title: 'Bio',
       type: 'bodyPortableText',
-    },
-    {
-      name: 'links',
-      title: 'Links',
-      type: 'array',
-      of: [{ name: 'links', type: 'links' }]
     }
   ]
 }

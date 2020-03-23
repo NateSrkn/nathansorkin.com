@@ -12,5 +12,13 @@ export default () =>
             .schemaType('about')
             .documentId('about')
         ),
-        ...S.documentTypeListItems().filter(listItem => !['about'].includes(listItem.getId()))
+        S.listItem()
+          .title('General')
+          .child(
+            S.editor()
+              .id('general')
+              .schemaType('general')
+              .documentId('general')
+          ),
+        ...S.documentTypeListItems().filter(listItem => !['about', 'general'].includes(listItem.getId()))
     ])

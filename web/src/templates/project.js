@@ -19,6 +19,10 @@ const Wrapper = styled.div`
   position: relative;
   flex: 1;
 
+  &:last-child {
+    margin-bottom: 25px;
+  }
+
   @media screen and (min-width: ${props => props.theme.breakpoints.tablet}) {
     &:not(:last-child) {
       padding-right: 30px;
@@ -59,12 +63,11 @@ class Project extends Component {
           <AnimatedText type="mainHeader">{project.projectTitle}</AnimatedText>
         </Wrapper>
         <Wrapper>
-          {console.log(project)}
           <Section>
             <SubHeader none>Technologies</SubHeader>
             <List>
               {project.technologies.map(tech => (
-                <ListItem>{tech}</ListItem>
+                <ListItem key={tech}>{tech}</ListItem>
               ))}
             </List>
           </Section>
@@ -73,6 +76,11 @@ class Project extends Component {
             <Paragraph>
               <PortableText blocks={project._rawBody} />
             </Paragraph>
+          </Section>
+          <Section>
+            {project.links.map(link => (
+              <Link to={link.href} style={{marginRight: '15px'}} general={true} key={link.title}>{link.title}</Link>
+            ))}
           </Section>
         </Wrapper>
       </Container>

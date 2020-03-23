@@ -5,10 +5,12 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 // Documents
 import about from './documents/about'
+import general from './documents/general'
 import project from './documents/project'
 
 // Objects
 import bodyPortableText from './objects/bodyPortableText'
+import portableText from './objects/portableText'
 import linksObject from './objects/linksObject'
 import mainImage from './objects/mainImage'
 
@@ -20,8 +22,10 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     about,
+    general,
     project,
     bodyPortableText,
+    portableText,
     linksObject,
     mainImage
   ])

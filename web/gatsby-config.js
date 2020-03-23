@@ -1,4 +1,7 @@
 const clientConfig = require('./client-config')
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -41,7 +44,7 @@ module.exports = {
       resolve: `gatsby-source-sanity`,
       options: {
         ...clientConfig.sanity,
-        token: 'skL51fGLb9eCQHEeZ5iZS5HXDSXo5vgULI0wVi9CYIxuSCskTzfxLgJbUOGkRvDgqnQvm630ZpVfyHySMfhsNPwqe2OqwPyUpL3ZDDepbAUhfIqYBo2ySGaYdDwzh26KDEempm5BMfj0MrHAEB6MEEagTmHV8fJ3Yl98TT3P2SOrLyP3dpTT',
+        token: `${process.env.REACT_APP_TOKEN}`,
         overlayDrafts: true,
         watchMode: true
       }

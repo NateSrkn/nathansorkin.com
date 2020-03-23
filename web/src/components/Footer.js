@@ -38,33 +38,36 @@ const ProjectLink = styled.li`
 
 `
 
+const Section = styled.div`
+  margin-top: 15px;
+`
+
 export const Footer = () => {
   const data = useStaticQuery(graphql`
   query aboutQuery {
-    allSanityProject {
-      nodes {
+    sanityGeneral {
+      links {
+        href
+        title
+      }
+      _rawContactBlurb
+      featured {
         projectTitle
-        technologies
         slug {
           current
-        }
-        _rawBody
-        links {
-          title
-          href
         }
       }
     }
   }
 `)
 
-  const projects = data.allSanityProject.nodes
+  const general = data.sanityGeneral
   return (
     <Container>
       <Wrapper>
         <AnimatedText>Featured</AnimatedText>
         <ProjectLinks>
-          {projects.map(project => <ProjectLink key={project.projectTitle}><Link to={`/project/${project.slug.current}`} general activeClass='project-active'>{project.projectTitle}</Link></ProjectLink>)}
+          {general.featured.map(project => <ProjectLink key={project.projectTitle}><Link to={`/project/${project.slug.current}`} general activeClass='project-active'>{project.projectTitle}</Link></ProjectLink>)}
         </ProjectLinks>
       </Wrapper>
       <Wrapper>
@@ -73,6 +76,11 @@ export const Footer = () => {
           I’m currently looking for opportunities,
           reach out at <Link to="mailto:hello@nathansorkin.com?Subject=Let's Talk!" style={{color:'#3F61EA'}}>hello@nathansorkin.com</Link>
         </Paragraph>
+        <Section>
+        {general.links.map(link => (
+            <Link general to={link.href} key={link.title} column>{link.title}</Link>
+          ))}
+        </Section>
       </Wrapper>
     </Container>
   )
