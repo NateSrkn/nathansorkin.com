@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { globalHistory } from "@reach/router"
 import styled, { css } from 'styled-components'
 import anime from 'animejs'
 
@@ -89,7 +90,7 @@ const SubAnimation = ({ children, ...other }) => (
 ) 
 
 export const AnimatedText = ({children, type, ...other}) => {
-  const currentPage = window.location.pathname
+  const currentPage = globalHistory.location.pathname
 
   const wrapText = () => {
     let textWrapper = document.querySelectorAll('.text-wrapper .letters')

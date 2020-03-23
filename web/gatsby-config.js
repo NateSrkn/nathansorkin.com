@@ -44,9 +44,9 @@ module.exports = {
       resolve: `gatsby-source-sanity`,
       options: {
         ...clientConfig.sanity,
-        token: `${process.env.REACT_APP_TOKEN}`,
-        overlayDrafts: true,
-        watchMode: true
+        // token: `${process.env.REACT_APP_TOKEN}`,
+        // overlayDrafts: true,
+        // watchMode: true
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
