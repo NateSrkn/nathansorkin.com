@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import SEO from '../components/seo'
 import styled from 'styled-components'
 import { AnimatedText, SubHeader, Paragraph } from '../components/Text'
