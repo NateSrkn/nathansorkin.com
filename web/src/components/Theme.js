@@ -24,7 +24,7 @@ const theme = {
 }
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://use.typekit.net/ord5qwu.css');
+  
 
   * {
     margin: 0;
@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
     width: 100%;
-    font-family: 'Stolzl';
+    font-family: 'Stolzl', sans-serif;
   }
 
   body { 

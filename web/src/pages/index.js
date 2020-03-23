@@ -6,6 +6,8 @@ import { AnimatedText, Paragraph } from '../components/Text'
 import SEO from "../components/seo"
 import styled from 'styled-components'
 
+import './index.css'
+
 const Wrapper = styled.div`
 
 `
