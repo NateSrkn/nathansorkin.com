@@ -24,6 +24,8 @@ const theme = {
 }
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://use.typekit.net/ord5qwu.css');
+
   * {
     margin: 0;
     padding: 0;
