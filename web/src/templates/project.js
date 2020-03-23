@@ -56,7 +56,11 @@ class Project extends Component {
     const project = this.props.data.sanityProject
     return (
       <Layout>
-      <SEO title={project.projectTitle}/>
+      <SEO title={project.projectTitle} 
+          description={project.projectTitle}
+          keywords={[
+            project.technologies
+          ]} />
       <Container>
         <Wrapper>
           <SubHeader none>Project</SubHeader>
