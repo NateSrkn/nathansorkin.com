@@ -34,6 +34,13 @@ const Section = styled.div`
   &:not(:first-child) {
     margin-top: 15px;
   }
+
+  p {
+    a {
+      color: ${props => props.theme.colors.blue};
+        text-decoration: none;
+    }
+  }
 `
 
 const List = styled.ul`
