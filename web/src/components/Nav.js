@@ -33,9 +33,9 @@ const Container = styled.nav`
   }
 `
 export const Nav = () => (
-  <Container>
+  <nav>
     <Link to="/" activeClass="nav-active">Home</Link>
     {/* <Link to="/about" activeClass="nav-active">About</Link>
     <Link to="/projects" activeClass="nav-active">Projects</Link> */}
-  </Container>
+  </nav>
 )

@@ -1,0 +1,27 @@
+nav {
+  padding-bottom: 1rem;
+  a {
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:after {
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.5s;
+      height: 3px;
+    }
+
+    &:hover {
+      &:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+
+    &.nav-active {
+      &:after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}

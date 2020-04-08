@@ -84,9 +84,9 @@ class Project extends Component {
           </Section>
           <Section>
             <SubHeader none>Description</SubHeader>
-            <Paragraph>
+            <div className="portable-text">
               <PortableText blocks={project._rawBody} />
-            </Paragraph>
+            </div>
           </Section>
           <Section>
             {project.links.map(link => (

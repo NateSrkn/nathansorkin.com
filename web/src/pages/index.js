@@ -44,9 +44,9 @@ const IndexPage = () => {
       <Wrapper>
         <div style={{textTransform: 'uppercase', fontSize: '20px'}}>Hello, I'm</div>
         <AnimatedText type={`mainHeader`} heavy>{about.author}</AnimatedText>
-        <Paragraph style={{fontSize: '1.3rem'}}>
+        <div className="portable-text main">
           <PortableText blocks={about._rawBio} />
-        </Paragraph>
+        </div>
       </Wrapper>
     </Layout>
   )

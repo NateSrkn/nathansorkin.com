@@ -1,0 +1,29 @@
+@import "variables";
+@import 'nav';
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.gn-link {
+  color: $blue;
+}
+
+.portable-text {
+  
+  a {
+    color: $blue;
+  }
+
+  &.main {
+    max-width: 35rem;
+    font-size: 1.2rem;
+  }
+}

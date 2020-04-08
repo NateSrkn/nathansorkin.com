@@ -40,6 +40,7 @@ module.exports = {
         trackingId: "UA-116226810-1"
       }
     },
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-sanity`,
       options: {
