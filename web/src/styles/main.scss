@@ -33,7 +33,7 @@ a {
   flex-direction: column;
   max-width: 70rem;
   margin: 0 auto;
-  padding: 10vw 1rem 1rem 1rem;
+  padding: 7vw 1rem 1rem 1rem;
 }
 
 .gn-link {
@@ -57,6 +57,7 @@ a {
 
   &.main {
     padding-bottom: 3rem;
+    min-height: 300px;
   }
 
   .group {
