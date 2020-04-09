@@ -26,18 +26,10 @@ const theme = {
 const GlobalStyle = createGlobalStyle`
   
 
-  * {
-    margin: 0;
-    padding: 0;
-  }
 
-  html, body {
-    height: 100%;
-    width: 100%;
-    font-family: 'Stolzl', sans-serif;
-  }
 
-  body { 
+
+  ${'' /* body { 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,5 +44,5 @@ const GlobalStyle = createGlobalStyle`
       margin-top: 20px;
       justify-content: flex-start;
     }
-  }
+  } */}
 `

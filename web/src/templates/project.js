@@ -68,33 +68,33 @@ class Project extends Component {
           keywords={[
             project.technologies
           ]} />
-      <Container>
-        <Wrapper>
-          <SubHeader none>Project</SubHeader>
+      <div className="wrapper main">
+        <div className="group">
+          <h3 className="subheader">Project</h3>
           <AnimatedText type="mainHeader">{project.projectTitle}</AnimatedText>
-        </Wrapper>
-        <Wrapper>
-          <Section>
-            <SubHeader none>Technologies</SubHeader>
-            <List>
+        </div>
+        <div className="group">
+          <section className="section">
+            <h3 className="subheader">Technologies</h3>
+            <ul className="list flex">
               {project.technologies.map(tech => (
                 <ListItem key={tech}>{tech}</ListItem>
               ))}
-            </List>
-          </Section>
-          <Section>
-            <SubHeader none>Description</SubHeader>
+            </ul>
+          </section>
+          <section className="section">
+            <h3 className="subheader">Description</h3>
             <div className="portable-text">
               <PortableText blocks={project._rawBody} />
             </div>
-          </Section>
-          <Section>
+          </section>
+          <section className="section">
             {project.links.map(link => (
               <Link to={link.href} style={{marginRight: '15px'}} general={true} key={link.title}>{link.title}</Link>
             ))}
-          </Section>
-        </Wrapper>
-      </Container>
+          </section>
+        </div>
+      </div>
     </Layout>
     )
   }

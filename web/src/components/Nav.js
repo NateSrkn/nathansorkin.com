@@ -3,7 +3,7 @@ import { Link, Container as LinkContainer } from './Link'
 import styled from 'styled-components'
 
 const Container = styled.nav`
-  padding-bottom: 55px;
+  padding-bottom: 70px;
   ${LinkContainer} {
     text-transform: uppercase;
     font-weight: bold;
@@ -33,7 +33,7 @@ const Container = styled.nav`
   }
 `
 export const Nav = () => (
-  <nav>
+  <nav style={{paddingBottom: 50}}>
     <Link to="/" activeClass="nav-active">Home</Link>
     {/* <Link to="/about" activeClass="nav-active">About</Link>
     <Link to="/projects" activeClass="nav-active">Projects</Link> */}

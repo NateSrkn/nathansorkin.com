@@ -37,11 +37,6 @@ const ProjectLink = styled.li`
   }
 
 `
-
-const Section = styled.div`
-  margin-top: 15px;
-`
-
 export const Footer = () => {
   const data = useStaticQuery(graphql`
   query aboutQuery {
@@ -63,25 +58,25 @@ export const Footer = () => {
 
   const general = data.sanityGeneral
   return (
-    <Container>
-      <Wrapper>
+    <div className="wrapper" style={{paddingTop: '3rem', borderTop: '3px solid black'}}>
+      <div className="group">
         <AnimatedText>Featured</AnimatedText>
         <ProjectLinks>
           {general.featured.map(project => <ProjectLink key={project.projectTitle}><Link to={`/project/${project.slug.current}`} general activeClass='project-active'>{project.projectTitle}</Link></ProjectLink>)}
         </ProjectLinks>
-      </Wrapper>
-      <Wrapper>
+      </div>
+      <div className="group">
         <AnimatedText>Contact</AnimatedText>
-        <Paragraph style={{fontSize: '1.3rem'}}>
+        <div className="portable-text main">
           I’m currently looking for opportunities,
           reach out at <Link to="mailto:hello@nathansorkin.com?Subject=Let's Talk!" style={{color:'#3F61EA'}}>hello@nathansorkin.com</Link>
-        </Paragraph>
-        <Section>
+        </div>
+        <div className="section" style={{marginTop: 15}}>
         {general.links.map(link => (
             <Link general to={link.href} key={link.title} column>{link.title}</Link>
           ))}
-        </Section>
-      </Wrapper>
-    </Container>
+        </div>
+      </div>
+    </div>
   )
 }

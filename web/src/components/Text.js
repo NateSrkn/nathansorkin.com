@@ -21,15 +21,6 @@ export const Header = styled.h1`
     line-height: 1em;
   }
 
-  ${props => props.heavy && css`
-    font-size: 65px;
-  `}
-
-  ${props => props.none && css`
-    margin: 0;
-    padding: 0;
-  `}
-
   @media screen and (max-width: ${props => props.theme.breakpoints.mobile}) {
     font-size: 1.5rem;
   }

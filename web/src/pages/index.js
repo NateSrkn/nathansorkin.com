@@ -8,10 +8,6 @@ import styled from 'styled-components'
 
 import './index.css'
 
-const Wrapper = styled.div`
-
-`
-
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query pageQuery {
@@ -41,13 +37,18 @@ const IndexPage = () => {
             'engineer'
           ]}
         />
-      <Wrapper>
-        <div style={{textTransform: 'uppercase', fontSize: '20px'}}>Hello, I'm</div>
-        <AnimatedText type={`mainHeader`} heavy>{about.author}</AnimatedText>
-        <div className="portable-text main">
-          <PortableText blocks={about._rawBio} />
+      <div className="wrapper main">
+        <div className="group">
+          <h3 className="subheader">Hello, I'm</h3>
+          <AnimatedText type={`mainHeader`}>{about.author}</AnimatedText>
+       
         </div>
-      </Wrapper>
+        <div className="group">
+        <div className="portable-text main">
+            <PortableText blocks={about._rawBio} />
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
