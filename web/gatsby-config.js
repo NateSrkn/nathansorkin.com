@@ -1,4 +1,4 @@
-const clientConfig = require('./client-config')
+const clientConfig = require("./client-config")
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -8,7 +8,7 @@ module.exports = {
     title: `Nathan Sorkin`,
     description: `Nathan Sorkin's portfolio website. Designed and developed by Nathan Sorkin.`,
     author: `Nathan Sorkin`,
-    email: `hello@nathansorkin.com`
+    email: `hello@nathansorkin.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -37,8 +37,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-116226810-1"
-      }
+        trackingId: "UA-116226810-1",
+      },
     },
     `gatsby-plugin-sass`,
     {
@@ -47,9 +47,9 @@ module.exports = {
         ...clientConfig.sanity,
         // token: `${process.env.REACT_APP_TOKEN}`,
         // overlayDrafts: true,
-        // watchMode: true
-      }
-    }
+        // watchMode: true,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -1,68 +1,73 @@
-import React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
-import styled, { css } from 'styled-components'
+import React from "react"
+import { Link as GatsbyLink } from "gatsby"
+import styled, { css } from "styled-components"
 
 export const Container = styled(GatsbyLink)`
-    color: ${props => props.theme.colors.black};
-    position: relative;
-    cursor: pointer;
-    z-index: 1;
-    text-decoration: none;
+  color: ${props => props.theme.colors.black};
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  text-decoration: none;
 
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    background-color: ${props => props.theme.colors.blue};
+  }
+
+  &.project-active {
     &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        z-index: -1;
-        bottom: 0;
-        left: 0;
-        background-color: ${props => props.theme.colors.blue};
+      height: 100%;
+      transform: scaleX(1);
     }
+  }
 
-    &.project-active {
+  ${props =>
+    props.general &&
+    css`
+      &:after {
+        height: 3px;
+        transition: height 0.5s;
+      }
+
+      &:hover {
         &:after {
-            height: 100%;
-            transform: scaleX(1);
+          height: 100%;
+          transition: height 0.5s;
         }
-    }
-
-    ${props => props.general && css`
-        &:after {
-            height: 3px;
-            transition: height 0.5s;
-        }
-
-        &:hover {
-            &:after {
-                height: 100%;
-                transition: height 0.5s;
-            }
-        }
+      }
     `}
 
-  ${props => props.column && css`
-    &:not(:last-child) {
-      margin-right: 15px;
-    }
-    font-size: 20px;
-  `} 
-
+  ${props =>
+    props.column &&
+    css`
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+      font-size: 20px;
+    `}
 `
 
 export const Link = ({ to, children, activeClass, ...props }) => {
-  const newTab = to.startsWith('http')
+  const newTab = to.startsWith("http")
   const internal = /^\/(?!\/)/.test(to)
 
-  if (!internal) return (
-    <Container
+  if (!internal)
+    return (
+      <Container
         as="a"
         href={to}
-        target={newTab ? `_blank` : undefined}
-        rel={newTab ? `noopener noreferrer` : undefined}
-        {...props}>
+        target={newTab && `_blank`}
+        rel={newTab && `noopener noreferrer`}
+        {...props}
+      >
         {children}
-    </Container>
-  )
+      </Container>
+    )
 
   return (
     <Container as={GatsbyLink} to={to} {...props} activeClassName={activeClass}>
