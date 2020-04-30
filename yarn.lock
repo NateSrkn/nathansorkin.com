@@ -867,10 +867,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@sanity/cli@^1.149.4":
-  version "1.149.4"
-  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-1.149.4.tgz#5bf3db53d77d4f23a8de1d3909c3ac8e838ade1a"
-  integrity sha512-GljFapNEjYcwmOh9C84f1uiJnF6LeSRDj7Kg6BZFyVuMye+HuP9aQFG45bMbKzh5UuJWZpNcrQti/2haI8p5kw==
+"@sanity/cli@^1.149.9":
+  version "1.149.9"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-1.149.9.tgz#32bbe27d5807e94d932760c6785fed6bbbb5b732"
+  integrity sha512-svC5aH+h/BFPMNvxXt6b9FxRc/yIQhY8jPK15h0V+dA4p20LnjXCK//Y+vvhGTqEZ06QLAQv/je2s4Lnzgz0jA==
 
 "@types/events@*":
   version "3.0.0"

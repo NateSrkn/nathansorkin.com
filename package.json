@@ -6,11 +6,11 @@
     "dev": "lerna run dev --parallel",
     "build-studio": "lerna bootstrap && cd studio && yarn build",
     "build-web": "lerna bootstrap && (cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN yarn graphql-deploy) && (cd web && yarn build)",
-    "graphql-deploy": "lerna run graphql-deploy",
+    "graphql-deploy": "yarn cache clean && lerna run graphql-deploy",
     "postinstall": "lerna bootstrap"
   },
   "devDependencies": {
-    "@sanity/cli": "^1.149.4",
+    "@sanity/cli": "^1.149.9",
     "lerna": "^3.20.2"
   }
 }
