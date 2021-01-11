@@ -1,11 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { PortableText } from "../components/common/PortableText"
 import Layout from "../components/layout"
-import { AnimatedText } from "../components/Text"
 import SEO from "../components/seo"
-
-import "./index.css"
+import ProjectLink from "../components/ProjectLink"
+import { Accordion } from "../components/common/Accordion"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -16,9 +15,27 @@ const IndexPage = () => {
           _rawBio
         }
       }
+      allSanityProject {
+        nodes {
+          projectTitle
+          technologies
+          _rawBody
+          projectType
+          projectColor {
+            hex
+          }
+          links {
+            title
+            href
+          }
+        }
+      }
     }
   `)
   const about = data.allSanityAbout.nodes[1]
+  const projects = data.allSanityProject.nodes
+  const [activeEventKey, setActiveEventKey] = useState(null)
+
   return (
     <Layout>
       <SEO
@@ -37,15 +54,21 @@ const IndexPage = () => {
           "engineer",
         ]}
       />
-      <div className="root top-level">
-        <section className="section">
-          <h3 className="subheader">Hello, I'm</h3>
-          <AnimatedText type={`mainHeader`}>{about.author}</AnimatedText>
-          <div className="portable-text main">
-            <PortableText blocks={about._rawBio} />
+
+      <section className="hero-section">
+        <div className="hero-text">
+          <div id="about-me">
+            <PortableText blocks={about._rawBio} id="about-me" />
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      <section className="project-section">
+        <Accordion activeEventKey={activeEventKey} onToggle={setActiveEventKey}>
+          {projects.map((project, index) => (
+            <ProjectLink project={project} key={index} index={index} />
+          ))}
+        </Accordion>
+      </section>
     </Layout>
   )
 }

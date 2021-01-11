@@ -9,12 +9,22 @@ export default {
       title: "Project Title",
     },
     {
+      name: "projectType",
+      type: "string",
+      title: "Project Type",
+    },
+    {
       name: "slug",
       type: "slug",
       title: "slug",
       options: {
         source: "projectTitle",
       },
+    },
+    {
+      name: "projectColor",
+      title: "Project Color",
+      type: "color",
     },
     {
       name: "technologies",
