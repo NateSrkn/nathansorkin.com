@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { TweenMax } from "gsap"
 export const useCursor = () => {
-  const matchMedia = window.matchMedia("(any-hover: none)")
-  const [isTouch, setIsTouch] = useState(matchMedia.matches)
+  const [isTouch, setIsTouch] = useState(false)
 
   const applyCursor = useCallback((cursor) => {
     document.body.style.cursor = "none"
@@ -29,6 +28,7 @@ export const useCursor = () => {
   }, [])
 
   useEffect(() => {
+    const matchMedia = window.matchMedia("(any-hover: none)")
     const cursor = document.querySelector(".border")
     matchMedia.addEventListener("change", () => {
       setIsTouch(matchMedia.matches)
@@ -39,7 +39,7 @@ export const useCursor = () => {
       addHoverable(cursor)
       applyCursor(cursor)
     }
-  }, [isTouch, applyCursor, addHoverable, matchMedia])
+  }, [isTouch, applyCursor, addHoverable])
 
   const onMouseMove = (e, cursor) => {
     TweenMax.to(cursor, 0.2, {
