@@ -64,6 +64,10 @@ p {
   grid-template-columns: 50px 1fr;
   grid-template-rows: 1fr 50px;
 
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
+  }
+
   @media screen and (min-width: 768px) {
     grid-template-columns: calc(200px + (285 - 200) * ((100vw - 300px) / (1000 - 300))) 1fr;
   }

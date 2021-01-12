@@ -4,7 +4,7 @@ import { Link } from "../components/Link"
 
 export const Footer = () => {
   const [musicList, setMusicList] = useState({})
-  const [weather, setWeather] = useState({ recentTracks: [] })
+  const [weather, setWeather] = useState(null)
   useEffect(() => {
     axios
       .get("https://ex-stat-ic.natesrkn.vercel.app/tracks")
@@ -28,10 +28,12 @@ export const Footer = () => {
           )}
         </Link>
       </div>
-      <div className="weather">
-        {weather && `${weather.city} / ${Math.round(weather.temperature)} `}
-        <sup>&#8457;</sup>
-      </div>
+      {weather && (
+        <div className="weather">
+          {weather?.city} / {Math.round(weather?.temperature)}
+          <sup>&#8457;</sup>
+        </div>
+      )}
     </footer>
   )
 }

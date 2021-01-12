@@ -17,8 +17,12 @@ const Layout = ({ children }) => {
   const { width, height } = useWindowSize()
   useEffect(() => {
     const nav = document.querySelector(".nav-items")
+
     if (width >= 768 && height >= 400) {
       alignNav(nav)
+      window.addEventListener("orientationchange", () => {
+        alignNav(nav)
+      })
     } else {
       nav.style.transform = `translateY(0px)`
     }

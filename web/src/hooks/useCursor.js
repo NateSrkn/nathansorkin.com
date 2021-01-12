@@ -28,8 +28,9 @@ export const useCursor = () => {
   }, [])
 
   useEffect(() => {
-    const matchMedia = window.matchMedia("(any-hover: none)")
+    const matchMedia = window.matchMedia("(hover: none)")
     const cursor = document.querySelector(".border")
+    setIsTouch(matchMedia.matches)
     matchMedia.addEventListener("change", () => {
       setIsTouch(matchMedia.matches)
     })
