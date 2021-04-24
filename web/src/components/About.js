@@ -9,8 +9,8 @@ export const About = ({ bio }) => {
 
   useEffect(() => {
     setPosition({
-      x: aboutRef.current.getBoundingClientRect().x,
-      y: aboutRef.current.getBoundingClientRect().y,
+      x: aboutRef.current.offsetLeft,
+      y: aboutRef.current.offsetTop,
     })
   }, [setPosition, height, width])
 
