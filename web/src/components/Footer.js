@@ -3,8 +3,9 @@ import axios from "axios"
 import { Link } from "../components/Link"
 
 export const Footer = () => {
-  const [musicList, setMusicList] = useState({})
+  const [musicList, setMusicList] = useState({ recentTracks: [], nowPlaying: null })
   const [weather, setWeather] = useState(null)
+
   useEffect(() => {
     axios
       .get("https://ex-stat-ic.natesrkn.vercel.app/tracks")
@@ -22,7 +23,7 @@ export const Footer = () => {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              {musicList.recentTracks &&
+              {musicList.recentTracks.length &&
                 `Recently Played - ${musicList.recentTracks[0].artist} - ${musicList.recentTracks[0].song}`}
             </React.Fragment>
           )}

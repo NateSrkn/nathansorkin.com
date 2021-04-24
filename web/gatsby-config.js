@@ -1,7 +1,4 @@
 const clientConfig = require("./client-config")
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
 
 module.exports = {
   siteMetadata: {
@@ -11,6 +8,11 @@ module.exports = {
     email: `hello@nathansorkin.com`,
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -25,9 +27,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -46,7 +45,6 @@ module.exports = {
         trackingId: "UA-116226810-1",
       },
     },
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-sanity`,
       options: {
