@@ -1,41 +1,17 @@
-import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { PortableText } from "../components/common/PortableText"
+import React, { useEffect, useState } from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProjectLink from "../components/ProjectLink"
 import { Accordion } from "../components/common/Accordion"
+import { About } from "../components/About"
 
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query pageQuery {
-      allSanityAbout {
-        nodes {
-          author
-          _rawBio
-        }
-      }
-      allSanityProject {
-        nodes {
-          projectTitle
-          technologies
-          _rawBody
-          projectType
-          projectColor {
-            hex
-          }
-          links {
-            title
-            href
-          }
-        }
-      }
-    }
-  `)
+const IndexPage = ({ data }) => {
   const about = data.allSanityAbout.nodes[1]
   const projects = data.allSanityProject.nodes
   const [activeEventKey, setActiveEventKey] = useState(null)
 
+  useEffect(() => {}, [])
   return (
     <Layout>
       <SEO
@@ -56,17 +32,15 @@ const IndexPage = () => {
       />
 
       <section className="hero-section">
-        <div className="hero-text">
-          <div id="about-me">
-            <PortableText blocks={about._rawBio} id="about-me" />
-          </div>
-        </div>
+        <About bio={about._rawBio} />
       </section>
       <section className="project-section">
         <Accordion activeEventKey={activeEventKey} onToggle={setActiveEventKey}>
-          {projects.map((project, index) => (
-            <ProjectLink project={project} key={index} index={index} />
-          ))}
+          {projects
+            .sort((a, b) => a.order - b.order)
+            .map((project, index) => (
+              <ProjectLink project={project} key={index} index={index} />
+            ))}
         </Accordion>
       </section>
     </Layout>
@@ -74,3 +48,30 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query pageQuery {
+    allSanityAbout {
+      nodes {
+        author
+        _rawBio
+      }
+    }
+    allSanityProject {
+      nodes {
+        projectTitle
+        technologies
+        _rawBody
+        projectType
+        projectColor {
+          hex
+        }
+        links {
+          title
+          href
+        }
+        order
+      }
+    }
+  }
+`

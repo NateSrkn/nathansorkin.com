@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react"
+import React, { useState, useEffect, createContext } from "react"
 
-export const useWindowSize = () => {
+export const WindowSizeContext = createContext({ height: 0, width: 0 })
+
+export const WindowSizeTracker = ({ children }) => {
   const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
+    width: 0,
+    height: 0,
   })
-
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
@@ -26,5 +27,5 @@ export const useWindowSize = () => {
     return () => window.removeEventListener("resize", handleResize)
   }, []) // Empty array ensures that effect is only run on mount
 
-  return windowSize
+  return <WindowSizeContext.Provider value={windowSize}>{children}</WindowSizeContext.Provider>
 }

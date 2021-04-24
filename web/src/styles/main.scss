@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
 ::selection {
@@ -18,17 +19,19 @@ a {
 }
 
 .cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  cursor: none;
   pointer-events: none;
-  .border {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  z-index: 1;
+  circle {
+    fill: none;
+    stroke: black;
+  }
 
-    circle {
-      fill: none;
-      stroke: black;
-    }
+  @media (hover: none) {
+    display: none;
   }
 }
 

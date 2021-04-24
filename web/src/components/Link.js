@@ -47,7 +47,7 @@ export const Container = styled(GatsbyLink)`
     `}
 `
 
-export const Link = ({ to, children, activeClass, ...props }) => {
+export const Link = ({ to, children, activeClass = null, ...props }) => {
   const newTab = to.startsWith("http")
   const internal = /^\/(?!\/)/.test(to)
 
@@ -58,7 +58,7 @@ export const Link = ({ to, children, activeClass, ...props }) => {
         href={to}
         target={newTab ? `_blank` : ""}
         rel={newTab ? `noopener noreferrer` : ""}
-        className={"hoverable"}
+        className="hoverable"
         {...props}
       >
         {children}
@@ -71,7 +71,7 @@ export const Link = ({ to, children, activeClass, ...props }) => {
       to={to}
       {...props}
       activeClassName={activeClass}
-      className={"hoverable"}
+      className="hoverable"
     >
       {children}
     </Container>
