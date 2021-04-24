@@ -53,5 +53,10 @@ export default {
       type: "array",
       of: [{ name: "gallery", type: "gallery" }],
     },
+    {
+      name: "order",
+      title: "order",
+      type: "number",
+    },
   ],
 };

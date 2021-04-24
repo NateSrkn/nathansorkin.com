@@ -36,9 +36,11 @@ const IndexPage = ({ data }) => {
       </section>
       <section className="project-section">
         <Accordion activeEventKey={activeEventKey} onToggle={setActiveEventKey}>
-          {projects.map((project, index) => (
-            <ProjectLink project={project} key={index} index={index} />
-          ))}
+          {projects
+            .sort((a, b) => a.order - b.order)
+            .map((project, index) => (
+              <ProjectLink project={project} key={index} index={index} />
+            ))}
         </Accordion>
       </section>
     </Layout>
@@ -68,6 +70,7 @@ export const query = graphql`
           title
           href
         }
+        order
       }
     }
   }
