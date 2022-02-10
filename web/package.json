@@ -30,7 +30,7 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "prettier": "^2.1.2"
   },
   "keywords": [
