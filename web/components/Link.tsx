@@ -2,9 +2,10 @@ import NextLink from "next/link";
 
 export const Link: React.FC<{
   href: string;
+  forceNewTab?: boolean;
   [key: string]: any;
-}> = ({ href, children, ...props }) => {
-  const isNewTab = href.startsWith("http");
+}> = ({ href, children, forceNewTab, ...props }) => {
+  const isNewTab = forceNewTab || href.startsWith("http");
   const rel = isNewTab ? "noopener noreferrer" : undefined;
   const target = isNewTab ? "_blank" : "_self";
   return (

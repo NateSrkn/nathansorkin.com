@@ -12,10 +12,6 @@
     @apply p-2 hover:bg-slate-600 rounded transition-all;
   }
 
-  li::marker {
-    @apply text-orange-700;
-  }
-
   .bulleted {
     position: relative;
 
@@ -29,7 +25,13 @@
   }
 
   .general-link {
-    @apply focus:underline hover:underline;
+    @apply focus:underline hover:underline inline-block;
+  }
+
+  ul {
+    .general-link {
+      @apply block;
+    }
   }
 
   .section-header {

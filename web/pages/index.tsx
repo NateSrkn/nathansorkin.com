@@ -30,7 +30,6 @@ const Home: NextPage<{
               href="https://www.locusview.com"
               className="general-link text-inherit decoration-[#C4532C]"
             >
-              {" "}
               Locusview
             </Link>
           </p>

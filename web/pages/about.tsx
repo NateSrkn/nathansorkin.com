@@ -78,9 +78,75 @@ const About: NextPage<{
             </Link>
           </div>
         </header>
-        <img src={"./me.jpg"} className="rounded-lg shadow-lg" />
+        <Image
+          src="/me.jpg"
+          width={672}
+          height={444}
+          alt="Nathan Sorkin, smiling with a red hue over the photo. With a blurry image of New York city in the background"
+          className="rounded-lg shadow-lg"
+        />
         <section className="prose text-inherit">
           <PortableText value={about.content} />
+        </section>
+        <section>
+          <nav className="flex gap-4">
+            <Link href="/2022_Resume.pdf" className="general-link" forceNewTab>
+              Résumé
+            </Link>
+            <Link
+              href="https://www.github.com/natesrkn"
+              className="general-link"
+            >
+              Github
+            </Link>
+          </nav>
+        </section>
+        <section>
+          <h4 className="section-header">Courses I&apos;ve Taken</h4>
+          <ul className="sm:list-disc list-outside space-y-2 decoration-slate-50">
+            <li>
+              <Link
+                href="https://www.udemy.com/course/the-web-developer-bootcamp/"
+                className="general-link"
+              >
+                <h6>The Web Developer Bootcamp 2022</h6>
+                <div className="text-xs">Colt Steele</div>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/"
+                className="general-link"
+              >
+                <h6>Javascript Algorithms and Data Structures Masterclass</h6>
+                <div className="text-xs">Colt Steele</div>
+              </Link>
+            </li>
+            <li>
+              <Link href="https://javascript30.com/" className="general-link">
+                <h6>JavaScript30</h6>
+                <div className="text-xs">Wes Bos</div>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://beginnerjavascript.com/"
+                className="general-link"
+              >
+                <h6>Beginner JavaScript</h6>
+                <div className="text-xs">Wes Bos</div>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://reactforbeginners.com/"
+                className="general-link"
+              >
+                <h6>React For Beginners</h6>
+                <div className="text-xs">Wes Bos</div>
+              </Link>
+            </li>
+          </ul>
         </section>
         <section>
           <h4 className="section-header">What I&apos;m Listening To</h4>
