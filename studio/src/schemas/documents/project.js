@@ -4,12 +4,12 @@ export default {
   title: "Project",
   fields: [
     {
-      name: "projectTitle",
+      name: "title",
       type: "string",
       title: "Project Title",
     },
     {
-      name: "projectType",
+      name: "type",
       type: "string",
       title: "Project Type",
     },
@@ -18,28 +18,18 @@ export default {
       type: "slug",
       title: "slug",
       options: {
-        source: "projectTitle",
+        source: "title",
       },
     },
     {
-      name: "projectColor",
+      name: "color",
       title: "Project Color",
       type: "color",
     },
     {
-      name: "technologies",
-      type: "array",
-      title: "Technologies",
-      description: "Add the languages used in making the project",
-      of: [{ type: "string" }],
-      options: {
-        layout: "tags",
-      },
-    },
-    {
-      name: "body",
-      type: "bodyPortableText",
-      title: "Body",
+      name: "content",
+      title: "Content",
+      type: "content",
     },
     {
       name: "links",
@@ -48,15 +38,16 @@ export default {
       of: [{ name: "links", type: "links" }],
     },
     {
-      name: "images",
-      title: "Images",
-      type: "array",
-      of: [{ name: "gallery", type: "gallery" }],
-    },
-    {
       name: "order",
       title: "order",
       type: "number",
+    },
+  ],
+  orderings: [
+    {
+      title: "order",
+      name: "order",
+      by: [{ field: "order", direction: "asc" }],
     },
   ],
 };

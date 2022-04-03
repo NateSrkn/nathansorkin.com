@@ -9,11 +9,12 @@ import general from "./documents/general";
 import project from "./documents/project";
 
 // Objects
-import bodyPortableText from "./objects/bodyPortableText";
-import portableText from "./objects/portableText";
-import linksObject from "./objects/linksObject";
-import imageObject from "./objects/imageObject";
-import mainImage from "./objects/mainImage";
+
+import content from "./objects/content";
+import linksObject from "./objects/links";
+import experience from "./documents/experience";
+import custom_image from "./objects/image";
+import colored_text from "./objects/colored_text";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,10 +26,10 @@ export default createSchema({
     about,
     general,
     project,
-    bodyPortableText,
-    portableText,
+    colored_text,
+    custom_image,
+    content,
     linksObject,
-    imageObject,
-    mainImage,
+    experience,
   ]),
 });
