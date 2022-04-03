@@ -12,8 +12,5 @@ export default {
     {
       type: "code",
     },
-    {
-      type: "colored_text",
-    },
   ],
 };

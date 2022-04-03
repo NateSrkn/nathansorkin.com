@@ -25,7 +25,7 @@ const Home: NextPage<{
             passion for building great experiences.
           </p>
           <p>
-            He's currently coding away at{" "}
+            He&apos;s currently coding away at{" "}
             <Link
               href="https://www.locusview.com"
               className="general-link text-inherit decoration-[#C4532C]"

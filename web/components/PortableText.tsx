@@ -22,10 +22,6 @@ export const PortableText: React.FC<{
       ...overrides?.types,
     },
     marks: {
-      // em: ({ children }) => <em className="text-inherit">{children}</em>,
-      // strong: ({ children }) => (
-      //   <strong className="text-inherit">{children}</strong>
-      // ),
       link: ({ children, value }) => {
         return (
           <Link
@@ -40,10 +36,6 @@ export const PortableText: React.FC<{
         );
       },
       ...overrides?.marks,
-    },
-    block: {
-      // normal: ({ children }) => <p>{children}</p>,
-      ...overrides?.block,
     },
   };
   return <PortableTextComponent value={value} components={components} />;

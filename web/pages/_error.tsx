@@ -9,7 +9,7 @@ function Error({ statusCode }: { statusCode: number }) {
     </Layout>
   );
 }
-Error.getInitialProps = async ({ res, err }) => {
+Error.getInitialProps = async ({ res, err }: { res: any; err: any }) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
   return { statusCode };
 };

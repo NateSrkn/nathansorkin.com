@@ -62,8 +62,24 @@ const About: NextPage<{
       }}
     >
       <div className="grid grid-cols-1 md:grid-cols-1 gap-8 root">
-        <img src={"./me.jpg"} className="rounded-lg shadow" />
-        <section>
+        <header className="text-blue-200">
+          <Link href="/">
+            <h1 className="text-xl font-semibold tracking-wide">
+              Nathan Sorkin
+            </h1>
+          </Link>
+          <div className="text-blue-200">
+            Full-Stack Developer at{" "}
+            <Link
+              href="https://www.locusview.com/"
+              className="font-semibold decoration-[#C4532C] general-link"
+            >
+              Locusview
+            </Link>
+          </div>
+        </header>
+        <img src={"./me.jpg"} className="rounded-lg shadow-lg" />
+        <section className="prose text-inherit">
           <PortableText value={about.content} />
         </section>
         <section>
@@ -81,9 +97,9 @@ const About: NextPage<{
                       height={50}
                       width={50}
                       alt={`${track.name} by ${track.artists[0].name} on the album ${track.album.name}`}
-                      className="rounded-sm shadow-lg"
+                      className="rounded-sm shadow-lg flex-1"
                     />
-                    <div className="truncate">
+                    <div className="truncate flex-1">
                       <div className="truncate">{track.name}</div>
                       <div className="text-xs truncate">
                         <span

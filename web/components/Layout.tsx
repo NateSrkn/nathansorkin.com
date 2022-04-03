@@ -17,7 +17,6 @@ export const Layout: React.FC<{ meta?: { [key: string]: string } }> = ({
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
-  const router = useRouter();
   return (
     <div className="p-3 md:p-0 root">
       <Head>
