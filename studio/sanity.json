@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "Nathan's Portfolio"
-  },
   "api": {
     "projectId": "mfj4biie",
-    "dataset": "production"
+    "dataset": "development"
+  },
+  "project": {
+    "name": "Nathan's Portfolio"
   },
   "plugins": [
     "@sanity/base",
@@ -13,7 +13,8 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "@sanity/color-input"
+    "@sanity/color-input",
+    "@sanity/code-input"
   ],
   "env": {
     "development": {

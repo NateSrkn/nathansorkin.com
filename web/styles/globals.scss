@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-blue-100;
+  }
+
+  .nav-link {
+    @apply p-2 hover:bg-slate-600 rounded transition-all;
+  }
+
+  li::marker {
+    @apply text-orange-700;
+  }
+
+  .bulleted {
+    position: relative;
+
+    &:before {
+      content: "\2022";
+      position: absolute;
+      left: -20px;
+      top: 0.5em;
+      color: var(--bullet-color);
+    }
+  }
+
+  .general-link {
+    @apply focus:underline hover:underline;
+  }
+
+  .section-header {
+    @apply mb-2 text-sm text-slate-400;
+  }
+
+  .root {
+    @apply mx-auto max-w-2xl;
+  }
+}
