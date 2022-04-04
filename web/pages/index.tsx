@@ -3,14 +3,12 @@ import client from "../client";
 import { Link } from "../components/Link";
 import { ProjectDocument } from "../shared/types";
 import { Layout } from "../components/Layout";
-import { PortableText } from "../components/PortableText";
 import { ExperienceDocument } from "../shared/types/sanity";
 
 const Home: NextPage<{
   projects: ProjectDocument[];
-  general: any;
   experience: ExperienceDocument[];
-}> = ({ projects, general, experience }) => {
+}> = ({ projects, experience }) => {
   return (
     <Layout
       meta={{

@@ -55,7 +55,6 @@ const About: NextPage<{
     setIsPlaying(false);
   };
 
-  console.log(about);
   return (
     <Layout
       meta={{

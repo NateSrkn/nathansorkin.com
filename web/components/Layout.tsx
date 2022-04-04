@@ -1,6 +1,4 @@
-import classNames from "classnames";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import useSWR from "swr";
 import { fetcher } from "../shared/lib";
 import { NowPlaying, Weather } from "../shared/types";
@@ -18,7 +16,7 @@ export const Layout: React.FC<{ meta?: { [key: string]: string } }> = ({
     revalidateOnReconnect: false,
   });
   return (
-    <div className="p-3 md:p-0 root">
+    <div className="p-4 md:p-0 root">
       <Head>
         <title>{meta?.title || "Nathan Sorkin"}</title>
         <meta name="description" content={meta?.description || ""} />

@@ -14,8 +14,8 @@
 
   .bulleted {
     position: relative;
-
     &:before {
+      @apply hidden sm:block;
       content: "\2022";
       position: absolute;
       left: -20px;
