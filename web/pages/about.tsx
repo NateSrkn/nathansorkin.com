@@ -55,6 +55,7 @@ const About: NextPage<{
     setIsPlaying(false);
   };
 
+  console.log(about);
   return (
     <Layout
       meta={{
@@ -102,7 +103,7 @@ const About: NextPage<{
           </nav>
         </section>
         <section>
-          <h4 className="section-header">Courses I&apos;ve Taken</h4>
+          <h4 className="section-header">Recent Courses</h4>
           <ul className="sm:list-disc list-outside space-y-2 decoration-slate-50">
             <li>
               <Link
