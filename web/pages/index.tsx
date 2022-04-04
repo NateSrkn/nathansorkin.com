@@ -90,7 +90,7 @@ const Home: NextPage<{
                     <span
                       className="sm:hidden"
                       style={{
-                        color: "#C4532C",
+                        color: item.color.hex,
                       }}
                     >
                       &bull;
