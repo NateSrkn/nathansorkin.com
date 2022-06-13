@@ -32,6 +32,11 @@ export default {
       type: "content",
     },
     {
+      name: "url",
+      title: "URL",
+      type: "url",
+    },
+    {
       name: "links",
       title: "Links",
       type: "array",

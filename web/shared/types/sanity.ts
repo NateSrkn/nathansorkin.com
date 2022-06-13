@@ -12,6 +12,7 @@ export interface ProjectDocument extends SanityDocument {
   slug: { current: string; _type: "slug" };
   color: SanityColor;
   type: string;
+  url: string;
 }
 
 type SanityColor = {

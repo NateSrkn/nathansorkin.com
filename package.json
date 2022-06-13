@@ -10,7 +10,7 @@
     "postinstall": "lerna bootstrap"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.29.3",
-    "lerna": "^4.0.0"
+    "@sanity/cli": "^2.30.0",
+    "lerna": "^5.1.2"
   }
 }

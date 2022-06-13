@@ -1,27 +1,35 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { Layout } from "../components/Layout";
 import { Link } from "../components/Link";
-import Image from "next/image";
+import { Image } from "../components/Image";
 
 import { getBooks } from "../shared/lib";
 
-import {
-  BookShelfPagingObject,
-  SpotifyPagingObject,
-  SpotifyTrack,
-} from "../shared/types";
+import { SpotifyPagingObject, SpotifyTrack } from "../shared/types";
 import { useState, useRef, useEffect } from "react";
 import client from "../client";
 import { PortableText } from "../components/PortableText";
 import { getTopTracks } from "../shared/lib/spotify";
+import useSWR from "swr/immutable";
+import { Skeleton } from "../components/Skeleton";
+import { Track } from "../components/Track";
 
 const About: NextPage<{
   about: any;
-  tracks: SpotifyPagingObject<SpotifyTrack>;
-  books: { favorites: BookShelfPagingObject; reading: BookShelfPagingObject };
-}> = ({ about, tracks, books }) => {
+}> = ({ about }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  let { data: tracks } = useSWR<SpotifyPagingObject<SpotifyTrack>>(
+    "tracks",
+    () => getTopTracks(10)
+  );
+  const { data: books } = useSWR("books", async () => {
+    const books = await getBooks();
+    return {
+      favorites: books[0],
+      reading: books[1],
+    };
+  });
   useEffect(() => {
     audioRef.current = new Audio();
     audioRef.current.volume = 0.5;
@@ -55,7 +63,6 @@ const About: NextPage<{
     setIsPlaying(false);
   };
 
-  console.log(about);
   return (
     <Layout
       meta={{
@@ -152,42 +159,23 @@ const About: NextPage<{
         <section>
           <h4 className="section-header">What I&apos;m Listening To</h4>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {tracks &&
+            {tracks ? (
               tracks.items.map((track) => (
                 <li key={track.id}>
                   <button
                     className="group flex gap-2 items-center p-1 hover:bg-slate-600 rounded text-left w-full"
                     onClick={() => handleSetAudio(track)}
                   >
-                    <Image
-                      src={track.album.images[0].url}
-                      height={50}
-                      width={50}
-                      alt={`${track.name} by ${track.artists[0].name} on the album ${track.album.name}`}
-                      className="rounded-sm shadow-lg flex-1"
-                    />
-                    <div className="truncate flex-1">
-                      <div className="truncate">{track.name}</div>
-                      <div className="text-xs truncate">
-                        <span
-                          className={`${
-                            !track.preview_url ? "group-hover:hidden" : ""
-                          }`}
-                        >
-                          {track.artists
-                            .map((artist) => artist.name)
-                            .join(", ")}
-                        </span>
-                        {!track.preview_url && (
-                          <span className="group-hover:block hidden text-xs truncate">
-                            No preview available
-                          </span>
-                        )}
-                      </div>
-                    </div>
+                    <Track track={track} hasImage={true} />
                   </button>
                 </li>
-              ))}
+              ))
+            ) : (
+              <Skeleton
+                count={10}
+                component={() => <Track hasImage={true} />}
+              />
+            )}
           </ul>
         </section>
         <section className="grid gap-8 sm:grid-cols-2">
@@ -203,7 +191,7 @@ const About: NextPage<{
                   alt={`${
                     books.reading.items[0].volumeInfo.title
                   } by ${books.reading.items[0].volumeInfo.authors.join(", ")}`}
-                  className="rounded-sm shadow-lg max-w-xs"
+                  className="rounded-sm shadow-lg max-w-xs sm:w-full"
                 />
                 <div>
                   <div>{books.reading.items[0].volumeInfo.title}</div>
@@ -243,21 +231,11 @@ const About: NextPage<{
 
 export default About;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const [about, tracks, books] = await Promise.all([
-    client.fetch(`*[_type == "about"][0]`),
-    getTopTracks(10),
-    getBooks(),
-  ]);
-
+export const getStaticProps: GetStaticProps = async () => {
+  const about = await client.fetch(`*[_type == "about"][0]`);
   return {
     props: {
       about,
-      tracks,
-      books: {
-        favorites: books[0],
-        reading: books[1],
-      },
     },
   };
 };

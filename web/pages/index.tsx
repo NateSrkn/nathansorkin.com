@@ -8,9 +8,8 @@ import { ExperienceDocument } from "../shared/types/sanity";
 
 const Home: NextPage<{
   projects: ProjectDocument[];
-  general: any;
   experience: ExperienceDocument[];
-}> = ({ projects, general, experience }) => {
+}> = ({ projects, experience }) => {
   return (
     <Layout
       meta={{
@@ -107,7 +106,7 @@ const Home: NextPage<{
             {projects.map((project) => (
               <li key={project._id}>
                 <Link
-                  href={`/project/${project.slug.current}`}
+                  href={project.url}
                   className="group bulleted"
                   style={{
                     "--bullet-color": project.color.hex,
