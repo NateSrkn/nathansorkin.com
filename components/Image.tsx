@@ -14,8 +14,8 @@ export const Image: React.FC<{
     <NextImage
       src={src}
       alt={alt}
-      height={height}
-      width={width}
+      height={Number(height)}
+      width={Number(width)}
       className={classNames(
         "object-cover h-full max-w-full w-full aspect-square",
         className
