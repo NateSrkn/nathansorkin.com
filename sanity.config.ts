@@ -1,40 +1,22 @@
+"use client";
+
 // sanity.config.js
 import { codeInput } from "@sanity/code-input";
 import { colorInput } from "@sanity/color-input";
 import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
-import schemas from "./sanity/schema";
+import { structureTool } from "sanity/structure";
+
+import { structure } from "@/sanity/structure";
+import { schema } from "@/sanity/schemaTypes";
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 export default defineConfig({
   title: "Nathan's Portfolio",
-  projectId: "mfj4biie",
-  dataset: "production",
-  basePath: "/admin",
-  plugins: [
-    deskTool({
-      structure: (S) =>
-        S.list()
-          .title("Content")
-          .items([
-            S.listItem()
-              .title("About")
-              .child(
-                S.editor()
-                  .id("about")
-                  .schemaType("about")
-                  .documentId("about")
-                  .title("About")
-              ),
-            ...S.documentTypeListItems().filter(
-              (listItem) => !["about"].includes(listItem.getId() || "")
-            ),
-          ]),
-    }),
-
-    colorInput(),
-    codeInput(),
-  ],
-  schema: {
-    types: schemas,
-  },
+  projectId,
+  dataset,
+  basePath: "/studio",
+  plugins: [structureTool({ structure }), colorInput(), codeInput()],
+  schema: schema,
 });
