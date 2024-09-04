@@ -44,7 +44,7 @@ export default async function AboutPage() {
       </section>
       <section>
         <nav className="flex gap-4">
-          <Link href="/2022_Resume.pdf" className="general-link" forceNewTab>
+          <Link href="/2024_Resume.pdf" className="general-link" forceNewTab>
             Résumé
           </Link>
           <Link href="https://www.github.com/natesrkn" className="general-link">

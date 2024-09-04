@@ -1,5 +1,5 @@
 import { BookShelfEnum, getBooksByShelf } from "@/shared/lib";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 
 export const CurrentlyReading = async () => {
   const books = await getBooksByShelf(BookShelfEnum.READING);

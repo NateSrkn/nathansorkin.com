@@ -1,3 +1,4 @@
+"use client";
 import { Link } from "./Link";
 import { useNowPlayingQuery, useWeatherQuery } from "@/hooks/queries";
 import { Track, TrackItem } from "@spotify/web-api-ts-sdk";
@@ -26,13 +27,15 @@ const NowPlaying = () => {
       className="flex gap-2 items-center max-w-[50%]"
     >
       <div className={"flex flex-col truncate"}>
-        {nowPlaying.item.name && (
-          <div className="text-xs text-slate-400">Now Playing</div>
-        )}
-        <div className="truncate">{nowPlaying.item.name || "Not Playing"}</div>
-        {isTrack(nowPlaying.item) && (
+        <div className="text-xs text-slate-400">
+          {nowPlaying?.item?.name ? "Now Playing" : "Spotify"}
+        </div>
+        <div className="truncate">
+          {nowPlaying?.item?.name || "Not Playing"}
+        </div>
+        {isTrack(nowPlaying?.item) && (
           <div className="text-xs truncate">
-            {nowPlaying.item.artists.map((artist) => artist.name).join(", ")}
+            {nowPlaying?.item.artists.map((artist) => artist.name).join(", ")}
           </div>
         )}
       </div>

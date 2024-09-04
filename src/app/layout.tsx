@@ -6,14 +6,39 @@ const inter = Inter({
   variable: "--font-inter",
 });
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.nathansorkin.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Nathan Sorkin",
-  description: "Nathan Sorkin's portfolio",
+  description:
+    "Nathan Sorkin is a Columbus based full-stack developer with a passion for building great experiences.",
+  openGraph: {
+    title: "Nathan Sorkin",
+    description:
+      "Nathan Sorkin is a Columbus based full-stack developer with a passion for building great experiences.",
+    type: "website",
+    locale: "en_US",
+    url: "https://www.nathansorkin.com",
+    images: [
+      {
+        url: "/api/og",
+        width: 672,
+        height: 444,
+        alt: "Nathan Sorkin, smiling with a red hue over the photo. With a blurry image of New York city in the background",
+      },
+    ],
+  },
   icons: {
     icon: [
       { url: "/image/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/image/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/image/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/image/favicon-128.png", sizes: "128x128", type: "image/png" },
+      {
+        url: "/image/favicon-128x128.png",
+        sizes: "128x128",
+        type: "image/png",
+      },
       {
         url: "/image/favicon-196x196.png",
         sizes: "196x196",
@@ -72,6 +97,7 @@ export const metadata: Metadata = {
     "msapplication-square310x310logo": "/mstile-310x310.png",
   },
 };
+
 export default function RootLayout({
   children,
 }: {
