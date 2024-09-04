@@ -68,7 +68,7 @@ export default async function Home() {
             <li key={item._id}>
               <Link
                 href={item.href || "#"}
-                className="group bulleted"
+                className="group md:bulleted"
                 style={
                   {
                     "--bullet-color": item?.color?.hex,
@@ -108,7 +108,7 @@ export default async function Home() {
             <li key={project._id}>
               <Link
                 href={project.url || "#"}
-                className="group bulleted"
+                className="group md:bulleted"
                 style={
                   {
                     "--bullet-color": project?.color?.hex,
