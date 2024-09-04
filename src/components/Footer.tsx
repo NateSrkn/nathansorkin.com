@@ -18,6 +18,7 @@ const isTrack = (item: TrackItem | undefined): item is Track => {
 };
 const NowPlaying = () => {
   const { data: nowPlaying, status } = useNowPlayingQuery();
+  if (status === "error") return null;
   if (status !== "success") return null;
   return (
     <Link

@@ -20,7 +20,7 @@ export const TopTracks = () => {
 };
 
 const Content = async () => {
-  const tracks = await spotify.topTracks();
+  const tracks = (await spotify.topTracks()) ?? { items: [] };
   return tracks.items.slice(0, 10).map((track) => (
     <li key={track.id}>
       <Link
