@@ -31,7 +31,10 @@ export const Image: React.FC<NextImageProps> = ({
     />
   ) : (
     <div
-      className={classNames("filler-img aspect-square object-cover", className)}
+      className={classNames(
+        "filler-img aspect-square object-cover bg-slate-800 flex justify-center items-center",
+        className,
+      )}
       style={{
         aspectRatio: `${width || 1} / ${height || 1}`,
       }}

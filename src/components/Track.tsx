@@ -18,7 +18,7 @@ export const Track = ({
             src={track.album.images[0]?.url}
             height={100}
             width={100}
-            alt={track.name}
+            alt={track.artists.map((artist) => artist.name).join(", ") ?? ""}
           />
         </div>
       ) : null}
